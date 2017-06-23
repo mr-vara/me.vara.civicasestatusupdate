@@ -4,14 +4,14 @@
 
  The aim of this extension is to extend the CiviCase component functionality to update the case status any time.
 
-  A new edit link will be added in the case table.
+  A new edit link will be added in the case table.<br>
   ![Screen shot](https://raw.githubusercontent.com/mr-vara/me.vara.civicasestatusupdate/master/screen1.jpg)
   ![Screen shot](https://raw.githubusercontent.com/mr-vara/me.vara.civicasestatusupdate/master/screen2.jpg)
   
  **INSTALLING :**
 
   - Please visit [this] (https://wiki.civicrm.org/confluence/display/CRMDOC/Extensions) to find out more about configuring extensions directory for the first time.
-  - After configuring, locate the CivicaseStatusUpdate Extension from the list and install.
+  - After configuring, locate the CivicaseStatusUpdate Extension from the list and install.<br>
   **NOTE :** Make sure CiviCase must be installed before installing this extension.
 
  **ADVANTAGES :**
@@ -19,7 +19,7 @@
   - Free of cost. No need to donate a penny also.
   - Easy to install.
   - Bug free code.
-  - charming UI.
+  - Charming UI.
    
    Please don’t hesitate to reach out to me ( <varaprasadmaruboina@gmail.com> ) if you have queries/feedback/suggestions.
  
