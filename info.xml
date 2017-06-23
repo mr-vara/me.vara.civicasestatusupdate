@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<extension key="me.vara.civicasestatusupdate" type="module">
+  <file>civicasestatusupdate</file>
+  <name>CivicaseStatusUpdate</name>
+  <description>CivicaseStatusUpdate</description>
+  <license>AGPL-3.0</license>
+  <maintainer>
+    <author>vara</author>
+    <email>varaprasadmaruboina@gmail.com</email>
+  </maintainer>
+  <urls>
+    <url desc="Main Extension Page">http://FIXME</url>
+    <url desc="Documentation">http://FIXME</url>
+    <url desc="Support">http://FIXME</url>
+    <url desc="Licensing">http://www.gnu.org/licenses/agpl-3.0.html</url>
+  </urls>
+  <releaseDate>2017-06-23</releaseDate>
+  <version>1.0</version>
+  <develStage>alpha</develStage>
+  <compatibility>
+    <ver>4.7</ver>
+  </compatibility>
+  <comments></comments>
+  <civix>
+    <namespace>CRM/Civicasestatusupdate</namespace>
+  </civix>
+</extension>

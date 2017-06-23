@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/civicasestatusupdate</path>
+    <page_callback>CRM_Civicasestatusupdate_Form_CivicaseStatusUpdate</page_callback>
+    <title>CivicaseStatusUpdate</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+</menu>
