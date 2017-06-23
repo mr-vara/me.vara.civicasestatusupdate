@@ -1,4 +1,4 @@
-## CiviCRM-CiviCase Status Update Extension
+## CIVICRM-CIVICASE STATUS UPDATE EXTENSION
 
  Are you worrying with the existing CiviCase component? because it does't allow you to update case status. No need to worry any more. Top-notch Extension is here.
 
