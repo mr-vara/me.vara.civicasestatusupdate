@@ -5,8 +5,8 @@
  The aim of this extension is to extend the CiviCase component functionality to update the case status any time.
 
   A new edit link will be added in the case table.
-  ![Screen shot](https://raw.githubusercontent.com/username/projectname/branch/path/to/screen1.jpg)
-  ![Screen shot](https://raw.githubusercontent.com/username/projectname/branch/path/to/screen2.jpg)
+  ![Screen shot](https://raw.githubusercontent.com/mr-vara/me.vara.civicasestatusupdate/master/screen1.jpg)
+  ![Screen shot](https://raw.githubusercontent.com/mr-vara/me.vara.civicasestatusupdate/master/screen2.jpg)
   
  **INSTALLING :**
 
