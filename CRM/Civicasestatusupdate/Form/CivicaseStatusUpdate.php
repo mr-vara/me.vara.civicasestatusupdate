@@ -34,7 +34,7 @@ class CRM_Civicasestatusupdate_Form_CivicaseStatusUpdate extends CRM_Core_Form {
     $case = civicrm_api3('Case', 'getsingle', array('id' => $this->get('caseid'), 'return' => 'status_id'));
 
     $message = ts('Case status changed from %1 to %2', array(
-      1 => $statusOptions[$case['case_type_id'],
+      1 => $statusOptions[$case['case_type_id']],
       2 => $statusOptions[$values['case_status']])
     );
 
