@@ -8,7 +8,7 @@
 class CRM_Civicasestatusupdate_Form_CivicaseStatusUpdate extends CRM_Core_Form {
   public function buildQuickForm() {
 
-    $this->set('caseid') = (int) $_GET['caseid'];
+    $this->set('caseid', (int) $_GET['caseid']);
     $this->add(
       'select', 
       'case_status',
@@ -54,7 +54,7 @@ class CRM_Civicasestatusupdate_Form_CivicaseStatusUpdate extends CRM_Core_Form {
     if ($caseId) {
       // Pass case type to getoptions api so appropriate options are returned
       $case = civicrm_api3('Case', 'getsingle', array('id' => $caseId, 'return' => 'case_type_id'));
-      $params['case_type_id'] => $case['case_type_id'];
+      $params['case_type_id'] = $case['case_type_id'];
     }
     $result = civicrm_api3('Case', 'getoptions', $params);
     return $result['values'];
