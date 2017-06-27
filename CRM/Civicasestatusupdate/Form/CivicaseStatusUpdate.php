@@ -8,22 +8,14 @@
 class CRM_Civicasestatusupdate_Form_CivicaseStatusUpdate extends CRM_Core_Form {
   public function buildQuickForm() {
 
-  $caseid = $_GET['caseid'];
+    $this->set('caseid', (int) $_GET['caseid']);
     $this->add(
       'select', 
       'case_status',
       'Case Status',
-      $this->getStatusOptions() 
+      $this->getStatusOptions($this->get('caseid')) 
     );
 
-    $this->add(
-      'hidden',
-      'case_status2',
-      'Case Status2'
-    );	
-	
-    $defaults['case_status2'] = $caseid;
-    $this->setDefaults($defaults);
     $this->addButtons(array(
       array(
         'type' => 'submit',
@@ -33,28 +25,40 @@ class CRM_Civicasestatusupdate_Form_CivicaseStatusUpdate extends CRM_Core_Form {
     ));
 	
     $this->assign('elementNames', $this->getRenderableElementNames());
-    parent::buildQuickForm();
-	
   }
 
   public function postProcess() {
     $values = $this->exportValues();
-	$query2 = "UPDATE civicrm_case SET status_id = ".$values['case_status']." WHERE id=".$values['case_status2'];
-	CRM_Core_DAO::executeQuery($query2);	
-	
-    CRM_Core_Session::setStatus(ts('Status Changed'));
-    parent::postProcess();
+
+    $statusOptions = $this->getStatusOptions();
+    $case = civicrm_api3('Case', 'getsingle', array('id' => $this->get('caseid'), 'return' => 'status_id'));
+
+    $message = ts('Case status changed from %1 to %2', array(
+      1 => $statusOptions[$case['case_type_id']],
+      2 => $statusOptions[$values['case_status']])
+    );
+
+    civicrm_api3('Case', 'create', array('id' => $this->get('caseid'), 'status_id' => $values['case_status']));
+    civicrm_api3('Activity', 'create', array(
+      'case_id' => $this->get('caseid'),
+      'activity_type_id' => 'Change Case Status',
+      'status_id' => 'Completed',
+      'subject' => $message,
+    ));
+
+    CRM_Core_Session::setStatus($message, ts('Saved'), 'success');
   }
 
-public function getStatusOptions() {
-	$query = "SELECT value, label FROM civicrm_option_value WHERE option_group_id = 28";
-	$result = CRM_Core_DAO::executeQuery($query);
-	while ($result->fetch()) {
-		$options[$result->value] = $result->label;
-	}
-    return $options;
-}
-
+  public function getStatusOptions($caseId = NULL) {
+    $params = array('field' => 'status_id');
+    if ($caseId) {
+      // Pass case type to getoptions api so appropriate options are returned
+      $case = civicrm_api3('Case', 'getsingle', array('id' => $caseId, 'return' => 'case_type_id'));
+      $params['case_type_id'] = $case['case_type_id'];
+    }
+    $result = civicrm_api3('Case', 'getoptions', $params);
+    return $result['values'];
+  }
 
    /**
    * Get the fields/elements defined in this form.
